@@ -1,0 +1,12 @@
+<h3>Shipping Prices</h3>
+
+<ng-container *ngIf="shippingCosts$ | async as shippingCosts; else loading">
+  <div class="shipping-item" *ngFor="let shipping of shippingCosts">
+      <span>{{ shipping.type }}</span>
+      <span>{{ shipping.price | currency }}</span>
+  </div>
+ </ng-container>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>
